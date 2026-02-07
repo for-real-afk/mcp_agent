@@ -35,4 +35,4 @@ EXPOSE 8000
 # 8. Define the command to run your app
 # uvicorn starts the FastAPI server.
 # --host 0.0.0.0 makes it accessible from outside the container.
-CMD ["uvicorn", "agents:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "agents:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

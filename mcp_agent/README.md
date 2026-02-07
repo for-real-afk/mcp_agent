@@ -49,8 +49,12 @@ curl -X POST "http://localhost:8001/chat" \
 
 1. Create a new branch: `git checkout -b feature/your-feature-name`
 2. Make your changes.
-3. Verify with Docker: `docker-compose up --build`
-4. Push and create a Pull Request.
+3. **Hot Reloading**: The container uses `--reload`, so changes to `.py` files are reflected instantly without needing to restart Docker!
+4. **When to Rebuild**: If you add new libraries to `requirements.txt`, you **must** run:
+   ```bash
+   docker-compose up --build
+   ```
+5. Push and create a Pull Request.
 
 ## 🏗️ Architecture
 
