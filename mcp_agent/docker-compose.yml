@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  mcp-agent:
+    build: .
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    # The volumes mapping allows for "Hot Reloading" during development.
+    # If you change code on your computer, it updates inside the container!
+    environment:
+      - PYTHONUNBUFFERED=1

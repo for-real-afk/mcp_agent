@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "agricultural-server": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    },
+    "weather-server": {
+      "command": "python",
+      "args": ["server/weather_server.py"],
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}
