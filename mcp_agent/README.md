@@ -1,60 +1,77 @@
 # 🌾 Alumnx MCP Agent
 
-An intelligent LangGraph-based agent that orchestrates multiple MCP (Model Context Protocol) servers to provide agricultural insights, weather data, and more.
+---
 
-## 🚀 Quick Start (One Command)
+### 🚀 Deploy the Entire platform in **Seconds**
 
-The entire platform is containerized for ease of use. To run the agent and all tools, simply run:
+Welcome to the **Alumnx MCP Agent** repository. This project is built for high-performance agricultural intelligence, using **LangGraph**, **Gemini 2.5 Flash**, and **Model Context Protocol (MCP)**.
+
+---
+
+## ⚡ Quick Start (One Command)
+
+To run the entire platform—including the Intelligent Agent and all connected MCP servers—run this from the root of the `mcp_agent` folder:
 
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 
-This will:
+> [!TIP]
+> Use `-d` to run in detached mode. If you want to see the agent reasoning live, omit the `-d` or run `docker-compose logs -f`.
 
-1. Build the Agent image.
-2. Start the FastAPI server on port **8001**.
-3. Automatically discover all MCP tools.
-4. Map your local directory for **Hot Reloading** (changes you make to code reflect immediately).
+---
 
-## 🛠️ Prerequisites
+## 🛠️ Developer Onboarding
 
-- **Docker & Docker Compose**: Installed and running.
-- **Google AI API Key**: Get one from [Google AI Studio](https://aistudio.google.com/).
+### 1. Prerequisites
 
-## ⚙️ Configuration
+- **Docker Engine** (e.g., Docker Desktop)
+- **Google AI API Key** — [Get it here](https://aistudio.google.com/)
 
-1. Create a `.env` file in the root directory (you can use `.env.example` as a template).
-2. Add your `GOOGLE_API_KEY`:
-   ```env
-   GOOGLE_API_KEY=your_key_here
-   ```
+### 2. Environment Setup
 
-## 📚 API Documentation
+Copy the example environment file and add your key:
 
-Once the container is running, access the interactive Swagger docs at:
+```bash
+cp .env.example .env
+# Open .env and set GOOGLE_API_KEY
+```
+
+### 3. Verification
+
+Access the live API documentation here once the container is running:
 👉 **[http://localhost:8001/docs](http://localhost:8001/docs)**
 
-## 🧪 Testing
+---
 
-You can test the agent using `curl`:
+## 🏗️ Technical Stack
+
+- **Brain**: [Gemini 2.5 Flash](https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/) (Optimized for 2026 Free Tier)
+- **Orchestration**: [LangGraph](https://python.langchain.com/docs/langgraph/) (ReAct Agent Pattern)
+- **Protocol**: [MCP](https://modelcontextprotocol.io/) (Weather & Agri-Intelligence servers)
+- **Backend Framework**: FastAPI (Asynchronous Python)
+- **Continuous Environment**: Docker & Docker Compose
+
+---
+
+## 🤝 Contribution Guidelines
+
+We love external contributions! To get started:
+
+1.  **Branching**: Always create a feature branch (`git checkout -b feature/xyz`).
+2.  **Standards**: Follow PEP8 for Python and ensure `docker-compose up` passes without errors.
+3.  **Hot Reloading**: While in development, the container mounts your local directory. Any changes you save will be instantly reflected in the running container!
+
+---
+
+## 📡 Sample Query
 
 ```bash
 curl -X POST "http://localhost:8001/chat" \
      -H "Content-Type: application/json" \
-     -d '{"message": "What are the best seeds for organic wheat farming?"}'
+     -d '{"message": "What is the status of wheat pesticides in 2026?"}'
 ```
 
-## 🤝 Contributing
+---
 
-1. Create a new branch: `git checkout -b feature/your-feature-name`
-2. Make your changes.
-3. Verify with Docker: `docker-compose up --build`
-4. Push and create a Pull Request.
-
-## 🏗️ Architecture
-
-- **FastAPI**: Main entry point and API layer.
-- **LangGraph**: Orchestrates the agentic reasoning and tool-calling flow.
-- **Gemini 2.5 Flash**: The LLM brain powering the agent.
-- **MCP Servers**: Independent services providing specialized tools (found in `mcp_server.py` and `server/`).
+_Built with ❤️ for the future of agriculture._
