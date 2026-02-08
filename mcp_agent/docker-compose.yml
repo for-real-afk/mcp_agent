@@ -2,14 +2,18 @@ version: '3.8'
 
 services:
   mcp-agent:
-    build: .
+    image: rahulpandey187/mcp-agent:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8001:8000"
     env_file:
       - .env
-    volumes:
-      - .:/app
-    # The volumes mapping allows for "Hot Reloading" during development.
-    # If you change code on your computer, it updates inside the container!
+    restart: unless-stopped
+    # volumes:
+    #   - .:/app
+    # The volumes mapping is commented out for production-like behavior.
+    # Enable it locally for "Hot Reloading" by adding it back.
     environment:
       - PYTHONUNBUFFERED=1

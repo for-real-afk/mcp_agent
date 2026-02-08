@@ -4,23 +4,21 @@ An intelligent LangGraph-based agent that orchestrates multiple MCP (Model Conte
 
 ## 🚀 Quick Start (One Command)
 
-The entire platform is containerized for ease of use. To run the agent and all tools, simply run:
+The entire platform is containerized for ease of use. To run the agent without installing any packages locally:
 
-```bash
-docker-compose up --build -d
-```
+1.  **Configure environment**: Create a `.env` file with your `GOOGLE_API_KEY`.
+2.  **Run**:
+    ```bash
+    ./scripts/run.sh
+    ```
 
 This will:
 
-1. Build the Agent image.
-2. Start the FastAPI server on port **8001**.
-3. Automatically discover all MCP tools.
-4. Map your local directory for **Hot Reloading** (changes you make to code reflect immediately).
+1.  **Pull** the latest pre-built image from Docker Hub (`rahulpandey187/mcp-agent`).
+2.  Start the FastAPI server on port **8001**.
+3.  Automatically discover all MCP tools.
 
-## 🛠️ Prerequisites
-
-- **Docker & Docker Compose**: Installed and running.
-- **Google AI API Key**: Get one from [Google AI Studio](https://aistudio.google.com/).
+For development options and detailed Docker usage, see [DOCKER_DEPLOYMENT.md](./DOCKER_DEPLOYMENT.md).
 
 ## ⚙️ Configuration
 
