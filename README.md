@@ -178,5 +178,5 @@ Restart the agent - tools are auto-discovered!
 - **MCP Protocol**: https://modelcontextprotocol.io
 - **Gemini API**: https://ai.google.dev/
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for system design.
+See [ARCHITECTURE.md](architecture.md) for system design.
 See [DATAFLOW.md](DATAFLOW.md) for data flow details.
